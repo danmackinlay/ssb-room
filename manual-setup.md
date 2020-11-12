@@ -6,17 +6,12 @@ Recommended operating system: Debian.
 
 To run an SSB room you need to have a static public IP, ideally with a DNS record (i.e.`<hostname.yourdomain.tld>`).
 
-On a fresh Debian 9 box, as root, run:
+On a fresh Debian 10 box, as root, run:
 
 ```shell
 apt update
 apt upgrade -y
-apt install -y apt-transport-https ca-certificates curl software-properties-common
-wget https://download.docker.com/linux/debian/gpg -O docker-gpg
-sudo apt-key add docker-gpg
-echo "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee -a /etc/apt/sources.list.d/docker.list
-apt update
-apt install -y docker-ce
+apt install -y docker.io
 systemctl start docker
 systemctl enable docker
 ```
